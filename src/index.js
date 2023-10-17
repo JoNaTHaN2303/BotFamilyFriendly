@@ -32,7 +32,7 @@ client.on('ready', (c) => {
 
 //registering commands
 client.on('interactionCreate', (interaction) => {
-    if(!interaction.isChatInputCommand()) return;
+    //if(!interaction.isChatInputCommand()) return;
 
     if(interaction.commandName === 'ping') {
         interaction.reply('Pong!');
@@ -41,7 +41,7 @@ client.on('interactionCreate', (interaction) => {
 
 //extra
 client.on('messageCreate', (message) => {
-    if (message.content === 'ewout' && message.author.bot === false) {
-        message.reply('stinkt!');
+    if (message.content.includes('ewout') && message.author.bot === false) {
+        message.reply('ewout stinkt!');
     }
 });
