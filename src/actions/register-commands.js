@@ -2,16 +2,19 @@ require('dotenv').config();
 
 const { REST, Routes } = require('discord.js');
 
+const bard = require('./bard')
+
 const commands = [
     {
         name: 'ping',
         description: 'Replies with Pong!',
     },
+    bard.data.toJSON()
 ]
 
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
-(async () => {
+const registerCommands = async () => {
     try {
         console.log('Started refreshing application (/) commands.');
 
@@ -24,4 +27,6 @@ const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
     } catch (error) {
         console.error(error);
     }
-})();
+};
+
+module.exports = registerCommands
