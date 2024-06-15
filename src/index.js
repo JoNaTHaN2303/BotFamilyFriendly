@@ -13,7 +13,10 @@ const client = new Client({
 
 client.commands = new Map();
 
-loadCommands(client);
-loadEvents(client);
+client.once('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+    loadCommands(client);
+    loadEvents(client);
+});
 
 client.login(process.env.DISCORD_TOKEN);

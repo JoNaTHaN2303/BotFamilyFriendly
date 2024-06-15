@@ -3,6 +3,7 @@ const { commands } = require('../commands/export');
 function loadCommands(client) {
     for (const command of Object.values(commands)) {
         client.commands.set(command.data.name, command);
+        client.application.commands.create(command.data);
     }
 
     client.on('interactionCreate', async interaction => {

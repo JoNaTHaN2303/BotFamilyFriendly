@@ -1,11 +1,9 @@
 const Ready = require('./ready');
-const Welcome = require('./welcome-message')
-const Logging = require('./logging/export')
+// const Welcome = require('./welcome-message')
 
 module.exports = {
   events: {
     Ready,
-    Welcome,
-    Logging,
+    // Welcome,
   },
 };
